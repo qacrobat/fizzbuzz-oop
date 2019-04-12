@@ -1,24 +1,26 @@
 import de.qacrobat.fizzbuzz.FizzBuzzApp;
+import de.qacrobat.fizzbuzz.FizzBuzzPlayer;
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class FizzBuzzAppTest {
-    private FizzBuzzApp testee;
+    private FizzBuzzPlayer playerTestee;
+
 
     @Before
     public void setup() {
-        testee = new FizzBuzzApp();
+        playerTestee = new FizzBuzzPlayer();
     }
 
     @Test
     public void shouldSayFizzForMultipleOfThree() {
-        String result = testee.determineWord(3);
+        String result = playerTestee.determineWord(3);
 
         Assert.assertThat(result, CoreMatchers.is("Fizz"));
 
-        result = testee.determineWord(27);
+        result = playerTestee.determineWord(27);
 
         Assert.assertThat(result, CoreMatchers.is("Fizz"));
     }
