@@ -18,10 +18,12 @@ public class FizzBuzzGame {
     }
 
     public void startGame() {
-        for (int i = 1; i <= this.lastNumber; i++) {
-            players.get(i % players.size()).sayNextWord(i);
-            if (i < this.lastNumber) {
-                System.out.print(", ");
+        if (weHavePlayers()){
+            for (int i = 1; i <= this.lastNumber; i++) {
+                players.get(i % players.size()).sayNextWord(i);
+                if (i < this.lastNumber) {
+                    System.out.print(", ");
+                }
             }
         }
     }
@@ -29,4 +31,9 @@ public class FizzBuzzGame {
     public void addPlayer(FizzBuzzPlayer player) {
         players.add(player);
     }
+
+    private boolean weHavePlayers() {
+        return !players.isEmpty();
+    }
+
 }
